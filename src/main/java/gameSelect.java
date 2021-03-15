@@ -21,7 +21,6 @@ public class gameSelect {
 
         JButton select = new JButton("Select Game");       // creates select game button
         select.setFont(new Font("Verdana", Font.PLAIN, 50));
-        select.setBorder(BorderFactory.createEmptyBorder(100, 30, 100, 30));
 
         select.addActionListener(new ActionListener() {         // waiting for button to be clicked
             @Override

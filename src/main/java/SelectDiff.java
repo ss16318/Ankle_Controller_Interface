@@ -12,6 +12,7 @@ public class SelectDiff {
 
         JPanel mainPanel = new JPanel();                                        // creates main panel
         mainPanel.setLayout(new GridLayout(4,1));                     // sets main panel layout
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
         JPanel titlePanel = new JPanel();                                       // creates title panel
         JLabel title = new JLabel("Select Difficulty");                     // creates title label and text

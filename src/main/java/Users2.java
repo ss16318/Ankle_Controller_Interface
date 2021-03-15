@@ -22,7 +22,8 @@ public class Users2 {
         titlePanel.add(title);                                                  // adds title to title panel
 
         JPanel User1Panel = new JPanel();
-        JLabel user1 = new JLabel("Select Player 1");
+        JLabel user1 = new JLabel("Select Player 1   ");
+        user1.setFont(new Font("Verdana", Font.PLAIN, 30));
         ArrayList<String> userL = new ArrayList<String>();
         try {
             File myObj = new File("UserList.txt");
@@ -38,17 +39,21 @@ public class Users2 {
         }
         String[] choices = userL.toArray(new String[userL.size()]);
         final JComboBox<String> cb1 = new JComboBox<String>(choices);
+        cb1.setFont(new Font("Verdana", Font.PLAIN, 30));
         User1Panel.add(user1);
         User1Panel.add(cb1);
 
         JPanel newUser1 = new JPanel();
         JCheckBox checkbox1 = new JCheckBox("To create a new user for Player 1 please to box and fill in fields below");
+        checkbox1.setFont(new Font("Verdana", Font.PLAIN, 15));
         newUser1.add(checkbox1);
 
         JPanel newU1 = new JPanel();
         JLabel fLabel = new JLabel("First Name:   ");
+        fLabel.setFont(new Font("Verdana", Font.PLAIN, 15));
         JTextField fName = new JTextField(15);
         JLabel lLabel = new JLabel("Last Name:   ");
+        lLabel.setFont(new Font("Verdana", Font.PLAIN, 15));
         JTextField lName = new JTextField(15);
         newU1.add(fLabel);
         newU1.add(fName);
@@ -56,19 +61,24 @@ public class Users2 {
         newU1.add(lName);
 
         JPanel User2Panel = new JPanel();
-        JLabel user2 = new JLabel("Select Player 2");
+        JLabel user2 = new JLabel("Select Player 2   ");
+        user2.setFont(new Font("Verdana", Font.PLAIN, 30));
         final JComboBox<String> cb2 = new JComboBox<String>(choices);
+        cb2.setFont(new Font("Verdana", Font.PLAIN, 30));
         User2Panel.add(user2);
         User2Panel.add(cb2);
 
         JPanel newUser2 = new JPanel();
         JCheckBox checkbox2 = new JCheckBox("To create a new user for player 2 please to box and fill in fields below");
+        checkbox2.setFont(new Font("Verdana", Font.PLAIN, 15));
         newUser2.add(checkbox2);
 
         JPanel newU2 = new JPanel();
         JLabel fLabel2 = new JLabel("First Name:   ");
+        fLabel2.setFont(new Font("Verdana", Font.PLAIN, 15));
         JTextField fName2 = new JTextField(15);
         JLabel lLabel2 = new JLabel("Last Name:   ");
+        lLabel2.setFont(new Font("Verdana", Font.PLAIN, 15));
         JTextField lName2 = new JTextField(15);
         newU2.add(fLabel2);
         newU2.add(fName2);
@@ -76,9 +86,11 @@ public class Users2 {
         newU2.add(lName2);
 
         JPanel dirPanel = new JPanel();
-        JLabel dir = new JLabel("Who is controlling up and down (the other player controls left and right");
+        JLabel dir = new JLabel("Who is controlling up and down (the other player controls left and right)   ");
+        dir.setFont(new Font("Verdana", Font.PLAIN, 20));
         String[] pl = {"Player 1" , "Player 2"};
         final JComboBox<String> cb3 = new JComboBox<String>(pl);
+        cb3.setFont(new Font("Verdana", Font.PLAIN, 20));
         dirPanel.add(dir);
         dirPanel.add(cb3);
 
@@ -141,14 +153,29 @@ public class Users2 {
         });
         subPanel.add(submit);
 
-        mainPanel.setLayout(new GridLayout(9,1));
+        JPanel player1 = new JPanel();
+        player1.setLayout(new GridLayout(1,2));
+        player1.add(User1Panel);
+        JPanel new1 = new JPanel();
+        new1.setLayout(new GridLayout(2,1));
+        new1.add(newUser1);
+        new1.add(newU1);
+        player1.add(new1);
+
+        JPanel player2 = new JPanel();
+        player2.setLayout(new GridLayout(1,2));
+        player2.add(User2Panel);
+        JPanel new2 = new JPanel();
+        new2.setLayout(new GridLayout(2,1));
+        new2.add(newUser2);
+        new2.add(newU2);
+        player2.add(new2);
+
+
+        mainPanel.setLayout(new GridLayout(5,1));
         mainPanel.add(titlePanel);
-        mainPanel.add(User1Panel);
-        mainPanel.add(newUser1);
-        mainPanel.add(newU1);
-        mainPanel.add(User2Panel);
-        mainPanel.add(newUser2);
-        mainPanel.add(newU2);
+        mainPanel.add(player1);
+        mainPanel.add(player2);
         mainPanel.add(dirPanel);
         mainPanel.add(subPanel);
 

@@ -21,7 +21,7 @@ public class User {
         titlePanel.add(title);                                                  // adds title to title panel
 
         JPanel UserPanel = new JPanel();
-        JLabel user = new JLabel("Select User");
+        JLabel user = new JLabel("Select User:  ");
         user.setFont(new Font("Verdana", Font.PLAIN, 30));
         ArrayList<String> userL = new ArrayList<String>();
         try {

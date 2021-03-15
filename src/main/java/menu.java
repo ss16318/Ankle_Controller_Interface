@@ -12,7 +12,8 @@ public class menu {
         JFrame f = new JFrame();                                                // creates frame
 
         JPanel mainPanel = new JPanel();                                        // creates main panel
-        mainPanel.setLayout(new GridLayout(7,1));                     // sets main panel layout
+        mainPanel.setLayout(new GridLayout(6,1));                     // sets main panel layout
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
         JPanel titlePanel = new JPanel();                                       // creates title panel
         JLabel title = new JLabel("Menu");                                 // creates title label and text

@@ -22,18 +22,21 @@ public class NewUser {
 
         JPanel fPanel = new JPanel();
         JLabel fLabel = new JLabel("First Name:   ");
+        fLabel.setFont(new Font("Verdana", Font.PLAIN, 30));
         JTextField fName = new JTextField(15);
         fPanel.add(fLabel);
         fPanel.add(fName);
 
         JPanel lPanel = new JPanel();
         JLabel lLabel = new JLabel("Last Name:   ");
+        lLabel.setFont(new Font("Verdana", Font.PLAIN, 30));
         JTextField lName = new JTextField(20);
-        fPanel.add(lLabel);
-        fPanel.add(lName);
+        lPanel.add(lLabel);
+        lPanel.add(lName);
 
         JPanel subPanel = new JPanel();
         JButton submit = new JButton("Create user");
+        submit.setFont(new Font("Verdana", Font.PLAIN, 30));
         submit.addActionListener(new ActionListener() {                          // waits for button to be selected
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,6 +57,8 @@ public class NewUser {
         });
 
         subPanel.add(submit);
+
+        mainPanel.setLayout(new GridLayout(4,1));
 
         mainPanel.add(titlePanel);
         mainPanel.add(fPanel);

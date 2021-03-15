@@ -16,15 +16,14 @@ public class Calibration {
         JPanel welcomePanel = new JPanel();     // creates title panel
         JPanel startPanel = new JPanel();       // creates button panel
 
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
         JLabel title = new JLabel("We just need to do a calibration");      // creates title label with text
-        title.setFont(new Font("Verdana", Font.PLAIN, 50));       // sets font and size of text
-        title.setBorder(BorderFactory.createEmptyBorder(100, 30, 100, 30)); // adds a border for spacing
+        title.setFont(new Font("Verdana", Font.PLAIN, 70));       // sets font and size of text
         welcomePanel.add(title);        // adds title label to panel
 
         JButton connect = new JButton("Calibrate sensor");              // creates button to calibrate sensor
         connect.setFont(new Font("Verdana", Font.PLAIN, 50));     // sets font and size of text
-        connect.setBorder(BorderFactory.createEmptyBorder(100, 30, 100, 30));   // adds padding for spacing
 
         connect.addActionListener(new ActionListener() {        // waits for button to be clicked
             @Override
@@ -43,9 +42,9 @@ public class Calibration {
 
         startPanel.add(connect);                            // adds connect button to start panel
 
-        mainPanel.setLayout(new BorderLayout());            // sets panel layout
-        mainPanel.add(welcomePanel , BorderLayout.NORTH);   // adds welcome panel to top of main panel
-        mainPanel.add(startPanel , BorderLayout.CENTER);    // adds start panel to centre of main panel
+        mainPanel.setLayout(new GridLayout(2,1));            // sets panel layout
+        mainPanel.add(welcomePanel);   // adds welcome panel to top of main panel
+        mainPanel.add(startPanel);    // adds start panel to centre of main panel
 
         frame.add(mainPanel);                               // adds main panel to frame
         frame.setVisible(true);                             // makes main panel visible
