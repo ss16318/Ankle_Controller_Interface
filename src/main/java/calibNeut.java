@@ -34,13 +34,8 @@ public class calibNeut {
                 frame.setTitle("Calibrating... Hold for " + second-- + " seconds.");
 
                 if (second < 0){                            // at time less than 0s
-                    calibUp timer2 = new calibUp(session);   // next frame will open
-                    try {
-                        PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                        instruct.println("2");
-                        instruct.close();
-                    }
-                    catch(Exception E){}
+                    StartMenu start = new StartMenu(session);   // next frame will open
+
                     frame.dispose();                        // this frame will close
                     timer.cancel();                         // this timer will stop
                     timer.purge();

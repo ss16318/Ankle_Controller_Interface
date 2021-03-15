@@ -45,21 +45,23 @@ public class Players extends JPanel {
                 if (cb.getSelectedItem().toString().equals("Single Player")) {
                     User user = new User();
 
+                    KeyStroke keyStroke = KeyStroke.getKeyStroke("1");
                     try {
-                        PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                        instruct.println("10");
-                        instruct.close();
-                    } catch (Exception E) {
+                        Robot robot = new Robot();
+                        robot.keyPress(keyStroke.getKeyCode());
+                    } catch (AWTException E) {
+                        E.printStackTrace();
                     }
                 }
                 else {
                     Users2 users = new Users2();
                     try {
-                        PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                        instruct.println("11");
-                        instruct.close();
+                        KeyStroke keyStroke1 = KeyStroke.getKeyStroke("2");
+                        Robot robot = new Robot();
+                        robot.keyPress(keyStroke1.getKeyCode());
+                    } catch (AWTException E1) {
+                        E1.printStackTrace();
                     }
-                    catch(Exception E){}
                 }
 
 
@@ -80,7 +82,7 @@ public class Players extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    Desktop.getDesktop().browse(new URI("http://www.codejava.net"));
+                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/channel/UCr8n6qU39GnsOMPGhLfY44A"));
                 } catch (IOException | URISyntaxException e1) {
                     e1.printStackTrace();
                 }

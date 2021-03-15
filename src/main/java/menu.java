@@ -29,12 +29,6 @@ public class menu {
             public void actionPerformed(ActionEvent e) {
 
                 calibNeut recalib = new calibNeut(session);                   // when selected games select option will appear
-                try {
-                    PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                    instruct.println("1");
-                    instruct.close();
-                }
-                catch(Exception E){}
                 f.dispose();                                                 // frame will close
             }
         });
@@ -71,6 +65,13 @@ public class menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameSelect game = new gameSelect(session);
+                try {
+                    KeyStroke keyStroke2 = KeyStroke.getKeyStroke("7");
+                    Robot robot = new Robot();
+                    robot.keyPress(keyStroke2.getKeyCode());
+                } catch (AWTException E2) {
+                    E2.printStackTrace();
+                }
                 f.dispose();
             }
         });
@@ -89,11 +90,12 @@ public class menu {
             public void actionPerformed(ActionEvent e) {
                 try {
                     try {
-                        PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                        instruct.println("9");
-                        instruct.close();
+                        KeyStroke keyStroke3 = KeyStroke.getKeyStroke("8");
+                        Robot robot = new Robot();
+                        robot.keyPress(keyStroke3.getKeyCode());
+                    } catch (AWTException E3) {
+                        E3.printStackTrace();
                     }
-                    catch(Exception E){}
 
                     try {
                         File myObj = new File("User1Data.txt");

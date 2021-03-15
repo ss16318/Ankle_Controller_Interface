@@ -31,11 +31,12 @@ public class Calibration {
 
                 calibNeut timer1 =  new calibNeut(session);        // when clicked the timer frames cycle will start for calibration
                 try {
-                    PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                    instruct.println("1");
-                    instruct.close();
+                    KeyStroke keyStroke = KeyStroke.getKeyStroke("3");
+                    Robot robot = new Robot();
+                    robot.keyPress(keyStroke.getKeyCode());
+                } catch (AWTException E) {
+                    E.printStackTrace();
                 }
-                catch(Exception E){}
                 frame.dispose();
             }
         });
