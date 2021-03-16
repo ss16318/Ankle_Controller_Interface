@@ -73,12 +73,15 @@ class FootFlex():
         maxDownAngle = []
         averageAngle = []
         countReps = 0
+        countExceedingThreshold = 0
         while True:
             line = serialPort.readline()
             decodedLine = line.decode()
             peripheralAngle = (decodedLine.split("\t")[0])
             angle = float(peripheralAngle)
             averageAngle.append(angle)
+            if angle > abs(self.baselineSinglePlayer) + abs(self.thresholdSinglePlayer):
+                countExceedingThreshold = countExceedingThreshold + 1
 
             if angle<self.baselineSinglePlayer-self.thresholdSinglePlayer and flagUp==0 and flag_time_up==0:
                 flag_time_up = 1
@@ -122,7 +125,11 @@ class FootFlex():
                 maxDownAngle.append(angle)
             if countReps % 5 and countReps !=0:
                 self.playReps(str(countReps))
-            
+            if countExceedingThreshold == 3:
+                self.playReps("woohoo")
+                self.playReps("3_inarow")
+                countExceedingThreshold = 0
+
             if keyboard.is_pressed('7'):    # Esc key to stop
                 return
             if keyboard.is_pressed('8'):
@@ -170,8 +177,14 @@ class FootFlex():
             second_angle = float(secondperipheralAngle)
             averageAngleFirstPlayer.append(secondperipheralAngle)
             averageAngleSecondPlayer.append(firstPeripheralAngle)
+            countExceedingThresholdFirstPlayer = 0
+            countExceedingThresholdSecondPlayer = 0
 
-            
+            if first_angle > abs(self.baselineSecondPlayer) + abs(self.thresholdSecondPlayer):
+                countExceedingThresholdSecondPlayer = countExceedingThresholdSecondPlayer + 1
+
+            if second_angle > abs(self.baselineFirstPlayer) + abs(self.baselineFirstPlayer):
+                countExceedingThresholdFirstPlayer = countExceedingThresholdFirstPlayer + 1
 
             if second_angle<baseline_second-self.thresholdFirstPlayer and flagUp==0 and flag_time_up==0:
                 flag_time_up = 1
@@ -253,6 +266,16 @@ class FootFlex():
                 maxUpAngleSecondPlayer.append(angle)
             if flagRight == 1:
                 maxUpAngleSecondPlayer.append(angle)
+
+            if countExceedingThresholdFirstPlayer == 3:
+                self.playReps("woohoo")
+                self.playReps("3_inarow_p1")
+                countExceedingThresholdFirstPlayer = 0
+
+            if countExceedingThresholdSecondPlayer == 3:
+                self.playReps("woohoo")
+                self.playReps("3_inarow_p2")
+                countExceedingThresholdSecondPlayer = 0
 
             if time.perf_counter()-t1>1.5:
                 print("Reseting Sides...")
