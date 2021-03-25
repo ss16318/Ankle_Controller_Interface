@@ -53,8 +53,8 @@ public class SelectDiff2 {
 
                 try {
                     KeyStroke keyStroke1 = KeyStroke.getKeyStroke("5");
-                    Robot robot = new Robot();
-                    robot.keyPress(keyStroke1.getKeyCode());
+                    Robot robot1 = new Robot();
+                    robot1.keyPress(keyStroke1.getKeyCode());
                 } catch (AWTException E1) {
                     E1.printStackTrace();
                 }
@@ -72,11 +72,12 @@ public class SelectDiff2 {
             public void actionPerformed(ActionEvent e) {
 
                 session[1].setDiff(0.9);
+                gameSelect choose = new gameSelect(session);
 
                 try {
                     KeyStroke keyStroke2 = KeyStroke.getKeyStroke("6");
-                    Robot robot = new Robot();
-                    robot.keyPress(keyStroke2.getKeyCode());
+                    Robot robot2 = new Robot();
+                    robot2.keyPress(keyStroke2.getKeyCode());
                 } catch (AWTException E2) {
                     E2.printStackTrace();
                 }

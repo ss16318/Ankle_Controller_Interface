@@ -3,6 +3,14 @@ plugins {
     id 'application'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main': 'Main'
+        )
+    }
+}
+
 version '1.0-SNAPSHOT'
 
 application {

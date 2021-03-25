@@ -26,7 +26,7 @@ public class SelectDiff {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (session.length == 0) {
+                if (session.length == 1) {
                     gameSelect choose = new gameSelect(session);
                 }
                 else{ SelectDiff2 diff2 = new SelectDiff2(session); }
@@ -51,7 +51,7 @@ public class SelectDiff {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (session.length == 0) {
+                if (session.length == 1) {
                     gameSelect choose = new gameSelect(session);
                 }
                 else{ SelectDiff2 diff2 = new SelectDiff2(session); }
@@ -78,7 +78,7 @@ public class SelectDiff {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (session.length == 0) {
+                if (session.length == 1) {
                     gameSelect choose = new gameSelect(session);
                 }
                 else{ SelectDiff2 diff2 = new SelectDiff2(session); }

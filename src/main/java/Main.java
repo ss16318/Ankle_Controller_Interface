@@ -1,9 +1,9 @@
 
+
 public class Main {
     public static void main(String[] args)  {
 
-        Players players = new Players();
-
+        Loading loading = new Loading();
     }
 }
 

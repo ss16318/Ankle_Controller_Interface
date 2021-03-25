@@ -22,7 +22,7 @@ public class Users2 {
         titlePanel.add(title);                                                  // adds title to title panel
 
         JPanel User1Panel = new JPanel();
-        JLabel user1 = new JLabel("Select Player 1   ");
+        JLabel user1 = new JLabel("Select Player 1 (to control Up & Down)  ");
         user1.setFont(new Font("Verdana", Font.PLAIN, 30));
         ArrayList<String> userL = new ArrayList<String>();
         try {
@@ -61,7 +61,7 @@ public class Users2 {
         newU1.add(lName);
 
         JPanel User2Panel = new JPanel();
-        JLabel user2 = new JLabel("Select Player 2   ");
+        JLabel user2 = new JLabel("Select Player 2 (to control left & right)  ");
         user2.setFont(new Font("Verdana", Font.PLAIN, 30));
         final JComboBox<String> cb2 = new JComboBox<String>(choices);
         cb2.setFont(new Font("Verdana", Font.PLAIN, 30));
@@ -85,31 +85,12 @@ public class Users2 {
         newU2.add(lLabel2);
         newU2.add(lName2);
 
-        JPanel dirPanel = new JPanel();
-        JLabel dir = new JLabel("Who is controlling up and down (the other player controls left and right)   ");
-        dir.setFont(new Font("Verdana", Font.PLAIN, 20));
-        String[] pl = {"Player 1" , "Player 2"};
-        final JComboBox<String> cb3 = new JComboBox<String>(pl);
-        cb3.setFont(new Font("Verdana", Font.PLAIN, 20));
-        dirPanel.add(dir);
-        dirPanel.add(cb3);
-
         JPanel subPanel = new JPanel();
         JButton submit = new JButton("Submit");
         submit.setFont(new Font("Verdana", Font.PLAIN, 30));
         submit.addActionListener(new ActionListener() {                          // waits for button to be selected
             @Override
             public void actionPerformed(ActionEvent e) {
-                int i = 11;
-                if (cb3.getSelectedItem().toString().equals("Player 1")) {
-                        i = 11;
-                } else { i = 12; }
-                try {
-                    PrintWriter instruct = new PrintWriter("python", "UTF-8");
-                    instruct.println(i);
-                    instruct.close();
-                } catch (Exception E) {}
-
 
                 Session[] session = new Session[2];
 
@@ -172,11 +153,11 @@ public class Users2 {
         player2.add(new2);
 
 
-        mainPanel.setLayout(new GridLayout(5,1));
+        mainPanel.setLayout(new GridLayout(4,1));
         mainPanel.add(titlePanel);
         mainPanel.add(player1);
         mainPanel.add(player2);
-        mainPanel.add(dirPanel);
+
         mainPanel.add(subPanel);
 
         f.add(mainPanel);                       // adds main panel to frame

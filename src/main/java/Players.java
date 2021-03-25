@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -82,7 +81,7 @@ public class Players extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/channel/UCr8n6qU39GnsOMPGhLfY44A"));
+                    Desktop.getDesktop().browse(new URI("https://youtu.be/mBEtr7iHbTQ"));
                 } catch (IOException | URISyntaxException e1) {
                     e1.printStackTrace();
                 }
