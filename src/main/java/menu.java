@@ -106,3 +106,26 @@ public class menu {
         f.setExtendedState(Frame.MAXIMIZED_BOTH);                   // sets frame to fit screen
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ public class Loading {
 
         timer.schedule(new TimerTask(){           // start timer task
 
-            int second = 10;                       // defines start of countdown
+            int second = 15;                       // defines start of countdown
             @Override
             public void run() {
                 // title of frame will show time

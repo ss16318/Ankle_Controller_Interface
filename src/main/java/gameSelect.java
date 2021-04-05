@@ -6,7 +6,6 @@ import java.io.*;
 
 public class gameSelect {
 
-
     public gameSelect(Session[] session) {
 
 
@@ -58,7 +57,7 @@ public class gameSelect {
         selectPanel.add(select);                                // adds select button to select panel
 
         JPanel pracPanel = new JPanel();
-        JButton practice = new JButton("Test your hold time");
+        JButton practice = new JButton("Smooth Assessment");
         practice.setFont(new Font("Verdana", Font.PLAIN, 30));
         pracPanel.add(practice);
         practice.addActionListener(new ActionListener() {
@@ -80,7 +79,9 @@ public class gameSelect {
         mainPanel.setLayout(new GridLayout(3,1));
         mainPanel.add(titlePanel);
         mainPanel.add(selectPanel);
-        mainPanel.add(pracPanel);
+        if (session.length == 2) {
+            mainPanel.add(pracPanel);
+        }
 
         frame.add(mainPanel);                                           // adds main panel to frame
         frame.setVisible(true);                                         // sets frame to visible
