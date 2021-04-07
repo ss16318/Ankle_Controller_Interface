@@ -13,7 +13,7 @@ FootFlexGUI is the Matlab application to visualise the data of the patients.
 
 MatlabScript contains the function for visualising patients data.
 
-PythonScripts has the mainProgram file which is the one used by the Java interface and two more files created during the developpment of
+PythonScripts has the mainProgram file which is the one used by the Java interface and two more files created during the development of
 FootFlex. They are not needed for the program to run and are just test files.
 
 src is the main code for the Java interface developped in IntelliJ IDEA. The files that are not inside a folder and Gradle, META-INF folders are part of this as well.
