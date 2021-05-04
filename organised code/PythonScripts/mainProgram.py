@@ -5,6 +5,7 @@ import time
 import keyboard
 import numpy as np
 import sys
+import cv2
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
@@ -167,6 +168,8 @@ class FootFlex():
         countRepsSecondPlayer = 0
         player1_counter_reps = 0
         player2_counter_reps = 0
+        size_pixels = int(600)
+        size_pixels_half = int(size_pixels/2)
 
         while True:
             line = serialPort.readline()
@@ -178,6 +181,35 @@ class FootFlex():
             second_angle = float(secondPeripheralAngle)
             all_second_angles.append(second_angle)
 
+            #### insert cv2 code here
+
+    
+            #Threshold position of lines
+            up_pos_player1 = int(size_pixels_half*(1-(self.thresholdFirstPlayer/2.7)))
+            down_pos_player1 = int(size_pixels_half*(1+(self.thresholdFirstPlayer/2.7)))
+            point_pos_player1 = int(size_pixels_half*(1-((first_angle-self.baselineFirstPlayer)/2.7)))
+
+            up_pos_player2 = int(size_pixels_half*(1-(self.thresholdSecondPlayer/2.7)))
+            down_pos_player2 = int(size_pixels_half*(1+(self.thresholdSecondPlayer/2.7)))
+            point_pos_player2 = int(size_pixels_half*(1-((second_angle-self.baselineSecondPlayer)/2.7)))
+
+
+            whiteblankimage_player1 = 255 * np.ones(shape=[size_pixels, 400, 3], dtype=np.uint8)
+
+            # Threshold lines
+            cv2.line(whiteblankimage_player1, (1, up_pos_player1), (200,up_pos_player1), color=(0,255,0), thickness=8)
+            cv2.line(whiteblankimage_player1, (1,down_pos_player1), (200,down_pos_player1), color=(0,255,0), thickness=8)
+            cv2.line(whiteblankimage_player1, pt1=(1,size_pixels_half), pt2=(400,size_pixels_half), color=(0,0,255), thickness=1)
+            cv2.circle(whiteblankimage_player1,(100,point_pos_player1), 5, (0,0,255), -1)
+
+            # Threshold lines
+            cv2.line(whiteblankimage_player1, (201, up_pos_player2), (400,up_pos_player2), color=(255,0,0), thickness=8)
+            cv2.line(whiteblankimage_player1, (201,down_pos_player2), (400,down_pos_player2), color=(255,0,0), thickness=8)
+            cv2.circle(whiteblankimage_player1,(300,point_pos_player2), 5, (0,0,255), -1)
+
+            cv2.imshow('Player', whiteblankimage_player1)
+
+            
             if first_angle<self.baselineFirstPlayer+self.thresholdFirstPlayer - 0.15 and flagUp==0 and flag_time_up==0:
                 flag_time_up = 1
                 time.sleep(0.15)
@@ -274,8 +306,10 @@ class FootFlex():
                     pass
                 countRepsSecondPlayer = 0
 
-            if keyboard.is_pressed('8'):
+            cv2.waitKey(1)
 
+            if keyboard.is_pressed('8'):
+                cv2.destroyAllWindows()
                 all_first_angles_filtered = savgol_filter(all_first_angles, 35, 3)
                 all_second_angles_filtered = savgol_filter(all_second_angles, 35, 3)
 
